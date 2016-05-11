@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="taskman">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="http://clipartsign.com/upload/2016/02/22/double-shield-clip-art-at-vector-clip-art.png">
+    <title>Superheroic Task Management</title>
+    <link rel="stylesheet" href="./css/style.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./css/normalize.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./css/reset.css" media="screen" title="no title" charset="utf-8">
+</head>
+
+<body ng-controller="mainCtrl">
+
+  <header>
+    <section class="header-wrapper">
+      <div id="team-id-card">
+        <p>We're a Team!</p>
+      </div>
+      <div id="user-id-card">
+          <p>John Smithereness</p>
+      </div>
+    </section>
+  </header>
+    <container class="content-wrapper">
+
+  <section class="left-menu-panel">
+      <div class="left-menu-wrapper">
+        <div class="navbar">
+          <ul>
+            <li><a ui-sref="dashboard"><img src="/assets/dashboard(16px).png">    Dashboard</a></li>
+            <li><a ui-sref="project"><img src="/assets/project(16px).png"> Project</a></li>
+            <li><a ui-sref="team"><img src="/assets/team-icon(16px).png"> My Team</a></li>
+            <li><a ui-sref="tasks"><img src="/assets/tasks-icon(16px).png"> My Tasks</a></li>
+            <!-- <li>{{test}}</li> -->
+        </div>
+          </section>
+<section class="main-viewport">
+<ui-view></ui-view>
+</section>
+
+  </container>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/controllers/dashboardController.js"></script>
+    <script src="./js/controllers/teamController.js"></script>
+    <script src="./js/controllers/tasksController.js"></script>
+    <script src="./js/controllers/mainCtrl.js"></script>
+    <script src="./js/controllers/projectController.js"></script>
+    <script src="./js/services/tasksService.js"></script>
+    <script src="./js/directives/taskDirective.js"></script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+* {
+/*border: 1px solid red;*/
+font-family: Calibri, sans-serif;
+}
+
+html body {
+  height: 100%;
+  background-color: #ecf0f1;
+}
+
+a {
+  text-decoration: none;
+  color: #ecf0f1;
+
+}
+
+header {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  width: 100%;
+  /*height: 60px;*/
+}
+
+.header-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  font-family: Calibri, sans-serif;
+
+}
+
+#team-id-card {
+  font-size: 24px;
+  width: 200px;
+  border-right: 1px solid #212121;
+  padding-left: 1em;
+
+}
+
+#user-id-card {
+width: 20%;
+font-size: 18px;
+padding-right: 1em;
+}
+
+.content-wrapper {
+  flex-direction: row;
+}
+
+.left-menu-panel {
+background-color: #2980b9;
+height: 92vh;
+max-width: 20%;
+min-width: 200px;
+float: left;
+}
+
+.left-menu-wrapper {
+  color: #ecf0f1;
+  font-size: 18px;
+  padding-left: 1em;
+  margin-top: 30px;
+  line-height: 1.5;
+}
+
+.main-viewport {
+  height: 700px;
+  width: 100%;
+}
+
+#dashboard-container {
+  color: #212121;
+  display: flex;
+  flex-direction: column;
+}
+
+
+#project-container {
+  color: #212121;
+  display: flex;
+  flex-direction: column;
+
+}
+
+#tasks-container {
+  color: #212121;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.task-input-box>form>input {
+  width: 99.5%;
+}
+
+.checked {
+  text-decoration: line-through;
+}
+
+#team-container {
+  color: #212121;
+}
