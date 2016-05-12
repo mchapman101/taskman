@@ -1,5 +1,7 @@
 angular.module('taskman').controller("mainCtrl", function($scope){
 
+$scope.showThis = false;
+
 $scope.test = "Testing, testing!";
 
 // $scope.nav = [
@@ -8,4 +10,6 @@ $scope.test = "Testing, testing!";
 //     {name: 'team', title: 'My Team'},
 //     {name: 'tasks', title: 'My Tasks'},
 //   ];
+
+
 });

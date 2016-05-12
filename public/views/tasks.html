@@ -1,11 +1,15 @@
 <div id="tasks-container">
-  <div class="task-input-box">
-    <form ng-submit="addTask(task)">
-    <input type="text" ng-model="task.title">
-  </form>
-  </div>
+    <div class="task-input-box">
+        <form ng-submit="addTask(task)">
+            <input type="text" ng-model="task.title" placeholder="Add a Task Here!">
+        </form>
+    </div>
 
-<div ng-repeat="task in tasks">
-<tasks-list task="task"></tasks-list>
+    <div ng-repeat="task in tasks" >
+        <tasks-list task="task" ng-click='selectTask(task)'></tasks-list>
+    </div>
 </div>
-</div>
+
+<section class="right-task-menu-popup" style="width: 500px" ng-show="showRTMP">
+<div>{{selectedTask}}</div>
+</section>

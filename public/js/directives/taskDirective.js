@@ -8,8 +8,15 @@ angular.module('taskman')
       $state.go($state.current, {}, {reload: true});
       // tasksService.getTasks();
     });
+
+    $(document).ready (function(){
+      $('.tasker').click ( function(){
+        $('.right-task-menu-popup').animate({right: '300px'}, 1000, function(){});
+      });
+    });
   };
 
+$scope.showThis = false;
 
 })
 
@@ -19,7 +26,8 @@ angular.module('taskman')
         templateUrl: "/js/directives/taskList.html",
         restrict: "E",
         scope: {
-          task: "="
+          task: "=",
+          showRTMP: "="
         },
         controller: "tasksListController",
         link: function(scope, element, attribute) {
