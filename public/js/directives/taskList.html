@@ -1,3 +1,7 @@
 <input type="checkbox" ng-model="checked" ng-click="checkTask()">
-<span class="tasker">
+<span class="tasker" ng-click='selectTask(task)'>
 {{task.title}} </span><img src="/assets/removeX(16px).png" ng-click="removeTask()">
+
+<section class="right-task-menu-popup" style="width: 500px" ng-show="showRTMP">
+    <div><img src="/assets/removeX(32px).png" ng-click="showRTMP = false">{{selectedTask}}</div>
+</section>

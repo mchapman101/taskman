@@ -8,16 +8,9 @@ angular.module('taskman')
       $state.go($state.current, {}, {reload: true});
       // tasksService.getTasks();
     });
-
-    $(document).ready (function(){
-      $('.tasker').click ( function(){
-        $('.right-task-menu-popup').animate({right: '300px'}, 1000, function(){});
-      });
-    });
   };
 
 $scope.showThis = false;
-
 })
 
 .directive("tasksList", function() {
@@ -27,11 +20,17 @@ $scope.showThis = false;
         restrict: "E",
         scope: {
           task: "=",
-          showRTMP: "="
         },
         controller: "tasksListController",
-        link: function(scope, element, attribute) {
+        link: function(scope, element, attribute, $timeout) {
+          scope.showRTMP = false;
+          scope.selectTask = function(task){
 
+            scope.selectedTask = task;
+            scope.showRTMP = true;
+
+            console.log("hit", scope.showRTMP, scope.selectedTask);
+          };
 
             scope.checkTask = function() {
               scope.checked = false;

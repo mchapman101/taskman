@@ -20,9 +20,4 @@ angular.module('taskman').controller("tasksController", function($scope, tasksSe
 
     $scope.showRTMP = false;
 
-    $scope.selectTask = function(task){
-      $scope.selectedTask = task;
-      $scope.showRTMP = true;
-    };
-
 });

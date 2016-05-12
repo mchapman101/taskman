@@ -6,10 +6,6 @@
     </div>
 
     <div ng-repeat="task in tasks" >
-        <tasks-list task="task" ng-click='selectTask(task)'></tasks-list>
+        <tasks-list task="task"></tasks-list>
     </div>
 </div>
-
-<section class="right-task-menu-popup" style="width: 500px" ng-show="showRTMP">
-<div>{{selectedTask}}</div>
-</section>
