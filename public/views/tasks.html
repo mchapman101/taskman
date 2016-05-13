@@ -1,15 +1,29 @@
 <div id="tasks-container">
+
     <div class="task-input-box">
+        <img src="/assets/addPlus(32px).png">
         <form ng-submit="addTask(task)">
-            <input type="text" ng-model="task.title" placeholder="Add a Task Here!">
+            <input id="task-input-box-form" type="text" ng-model="task.title" placeholder="Add a Task Here!">
         </form>
     </div>
 
-    <div ng-repeat="task in tasks" >
+    <div class="task-list" ng-repeat="task in tasks">
         <tasks-list task="task" ng-click='selectTask(task)'></tasks-list>
     </div>
 </div>
 
-<section class="right-task-menu-popup" style="width: 500px" ng-show="showRTMP">
-<div>{{selectedTask}}</div>
+<section class="right-task-menu-popup" style="width: 500px" ng-show="showRTMP"><img src="/assets/removeX(32px).png" ng-click="showRTMP = false">
+
+    <form ng-submit="updateTask(selectedTask)">
+        Title:
+        <input type="text" ng-model="selectedTask.title" ng-model-options="{updateOn: 'submit'}">
+        </input>
+    </form>
+    </div>
+
+
+
+    <div>Assigned Users: {{selectedTask.users}}</div>
+    <div>Created At: {{selectedTask.createdAt}}</div>
+    <div>Deadline: {{selectedTask.deadline}}</div>
 </section>

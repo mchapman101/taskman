@@ -22,7 +22,19 @@ angular.module('taskman').controller("tasksController", function($scope, tasksSe
 
     $scope.selectTask = function(task){
       $scope.selectedTask = task;
-      $scope.showRTMP = true;
+      setTimeout(function(){
+        $scope.showRTMP = true;
+      }, 100);
     };
 
+$scope.updateTask= function(task){
+  console.log(task);
+  tasksService.updateTask(task).then(function(response) {
+    $scope.getTask();
+  });
+};
+
+// $scope.getFocus = function({
+//   document.getElementById('task-input-box-form').focus();
+// })
 });

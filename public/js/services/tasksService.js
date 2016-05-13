@@ -19,6 +19,16 @@ this.addTask = function(newTask) {
   });
 };
 
+this.updateTask = function(task){
+  return $http({
+    method: "PUT",
+    url: "/api/tasks/" + task._id,
+    data: task
+  }).then(function(response){
+    return response.data;
+  });
+};
+
 this.removeTask = function(task){
   return $http({
     method: "DELETE",

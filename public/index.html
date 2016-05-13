@@ -5,13 +5,18 @@
     <meta charset="utf-8">
     <link rel="icon" href="http://clipartsign.com/upload/2016/02/22/double-shield-clip-art-at-vector-clip-art.png">
     <title>Superheroic Task Management</title>
-    <link rel="stylesheet" href="./css/style.css" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="./css/normalize.css" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="./css/reset.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./css/style.css" >
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/please-wait.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <script  src="./js/please-wait.js"></script>
 </head>
 
 <body ng-controller="mainCtrl">
 
+  <!-- <script type="text/javascript">
+        window.loading_screen = window.pleaseWait({});
+        </script> -->
     <header>
         <section class="header-wrapper">
             <div id="team-id-card">
@@ -31,9 +36,6 @@
         </section>
         <section class="main-viewport">
             <ui-view></ui-view>
-            <!-- <section class="right-task-menu-popup" ng-model="popup"  style="width: 500px">
-            <div></div>
-            </section> -->
             </section>
 
 
@@ -51,8 +53,6 @@
     <script src="./js/services/tasksService.js"></script>
     <script src="./js/directives/taskDirective.js"></script>
     <script src="./js/directives/otherDirectives.js"></script>
-
-
 
 </body>
 
