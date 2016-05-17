@@ -15,10 +15,18 @@ angular.module('taskman')
         restrict: "E",
         scope: {
           task: "=",
-          showRTMP: "="
         },
         controller: "tasksListController",
-        link: function(scope, element, attribute) {
+        link: function(scope, element, attribute, $timeout) {
+          scope.showRTMP = false;
+          scope.selectTask = function(task){
+
+            scope.selectedTask = task;
+            scope.showRTMP = true;
+
+            console.log("hit", scope.showRTMP, scope.selectedTask);
+          };
+
             scope.checkTask = function() {
                 if (scope.checkedLine) {
                     element.toggleClass("checked-out");
