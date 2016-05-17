@@ -1,4 +1,4 @@
-angular.module('taskman').controller("tasksController", function($scope, tasksService) {
+angular.module('taskman').controller("tasksController", function($scope, tasksService, $filter) {
 
     // $scope.taskTest = "Here's a task for you to do!";
 
@@ -34,7 +34,10 @@ $scope.updateTask= function(task){
   });
 };
 
-// $scope.getFocus = function({
-//   document.getElementById('task-input-box-form').focus();
-// })
+$scope.formatDate = function(date){
+  return $filter('date')(date, 'fullDate');
+};
+
+
+
 });

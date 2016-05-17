@@ -8,11 +8,61 @@ html body {
   background-color: #ecf0f1;
 }
 
+body > .inner {
+  display: none;
+
+}
+
+body.pg-loaded > .inner {
+  display: block;
+}
+
 a {
   text-decoration: none;
   color: #ecf0f1;
 
 }
+.login-container {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: #2c3e50;
+  z-index: 1000;
+  top: 0px;
+  left: 0px;
+}
+
+.login {
+  position: relative;
+  margin: 80px auto;
+  width: 400px;
+  padding-right: 32px;
+  font-weight: 300;
+  color: #ecf0f1;
+  text-shadow: 1px 1px 0 rgba(black, .8);
+  p { margin: 0 0 10px; }
+}
+
+.registration-container {
+  padding:10px;
+  font-weight: 300;
+  color: #ecf0f1;
+}
+
+.registration-container.ng-enter, .registration-container.ng-leave {
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+.registration-container.ng-enter,
+.registration-container.ng-leave.ng-leave-active {
+  opacity:0;
+}
+
+.registration-container.ng-leave,
+.registration-container.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
 
 header {
   background-color: #2c3e50;
@@ -36,22 +86,34 @@ header {
   width: 200px;
   height: 100%;
   border-right: 1px solid #212121;
-  padding-left: 1em;
+  padding-left: 10px;
   padding-top: 15px;
+  display: flex;
+  flex-direction: row;
+}
+
+.team-dropdown-arrow {
+  margin-left: 12px;
 }
 
 #user-id-card {
 width: 20%;
-font-size: 18px;
-padding-right: 1em;
+font-size: 24px;
+/*padding-right: 1em;*/
+display: flex;
+flex-direction: row;
+}
+
+.user-dropdown-arrow {
+  margin-right: 10px;
 }
 
 .content-wrapper {
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .left-menu-panel {
-background-color: #2980b9;
+background-color: #2980B9;
 height: 92vh;
 max-width: 20%;
 min-width: 200px;
@@ -66,8 +128,11 @@ float: left;
   line-height: 1.5;
 }
 
+.navbar>ul>li:hover {
+  background-color: #3498DB;
+}
+
 .main-viewport {
-  height: 700px;
   width: 100%;
 }
 
@@ -97,8 +162,8 @@ top: 60px;
 bottom: 0px;
 z-index: 330;
 position: absolute;
- background-color: #ecf0f1;
- border-left: 1px solid #2c3e50;
+background-color: #ecf0f1;
+border-left: 1px solid #2c3e50;
 }
 
 .task-input-box {
@@ -115,6 +180,9 @@ display: flex;
 #task-input-box-form {
   font-size: 2em;
   margin-left: 15px;
+  border: none;
+  background: transparent;
+
 }
 
 .task-list{
@@ -123,14 +191,92 @@ display: flex;
   cursor: pointer;
 }
 
-.checked {
+.task-list-item:hover {
+background-color: rgba(52, 152, 219, 0.65)
+}
+
+.checked-out {
   text-decoration: line-through;
 }
 
-input {
-  border: none;
-  background: transparent;
 
 #team-container {
   color: #2c3e50;
+}
+
+
+/*DATE PICKER*/
+.ui-datepicker {
+  background-color: green;
+}
+
+.ui-widget-header {
+  background-color: gold;
+}
+
+.ui-widget-content {
+  color: blue;
+}
+
+
+.team-uparrow-menu {
+width:250px;
+min-height:40px; /*min height of DIV should be set to at least 2x the width of the arrow*/
+background: #ecf0f1;
+color: #2c3e50;
+padding:5px;
+position:fixed;
+word-wrap:break-word;
+-moz-border-radius:5px; /*add some nice CSS3 round corners*/
+-webkit-border-radius:5px;
+border-radius:5px;
+margin-bottom:2em;
+z-index: 1000;
+box-shadow: 1px 1px 5px #888888;
+}
+
+.team-uparrow-menu:after{ /*arrow added to uparrowdiv DIV*/
+content:'';
+display:block;
+position: absolute;
+top:-20px; /*should be set to -border-width x 2 */
+left:170px;
+width:0;
+height:0;
+border-color: transparent transparent #ecf0f1 transparent; /*border color should be same as div div background color*/
+border-style: solid;
+border-width: 10px;
+
+}
+
+.user-uparrow-menu {
+width:250px;
+min-height:40px; /*min height of DIV should be set to at least 2x the width of the arrow*/
+background: #ecf0f1;
+color: #2c3e50;
+padding:5px;
+position:fixed;
+word-wrap:break-word;
+-moz-border-radius:5px; /*add some nice CSS3 round corners*/
+-webkit-border-radius:5px;
+border-radius:5px;
+margin-bottom:2em;
+z-index: 1000;
+box-shadow: 1px 1px 5px #888888;
+right: 124px;
+}
+
+.user-uparrow-menu:after{
+  /*arrow added to uparrowdiv DIV*/
+content:'';
+display:block;
+position: absolute;
+top:-20px; /*should be set to -border-width x 2 */
+left:90px;
+width:0;
+height:0;
+border-color: transparent transparent #ecf0f1 transparent;
+/*border color should be same as div div background color*/
+border-style: solid;
+border-width: 10px;
 }

@@ -1,6 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-var session = require("express-sessions");
+var session = require("express-session");
 var mongoose = require("mongoose");
 mongoose.connect('mongodb://localhost/taskman');
 var port = 3000;
@@ -27,15 +27,14 @@ var app = express();
 app.use(bodyParser.json());
 app.use(express.static(__dirname+'./../public'));
 
-// app.use(session({
-//   secret: config.SESSION_SECRET,
-//   saveUninitialized: false,
-//   resave:false
-// }));
+app.use(session({
+  secret: config.SESSION_SECRET,
+  saveUninitialized: false,
+  resave:false
+}));
 
 app.use(passport.initialize());
 app.use(passport.session());
-
 
 //tasks
 app.get('/api/tasks', taskCtrl.Read);
@@ -49,8 +48,9 @@ app.post('/api/users', userCtrl.Create);
 app.get('/api/users/me', isAuthed, userCtrl.ReadMe);
 app.get('/api/users/:id', userCtrl.Find);
 app.put('/api/users/:id',isAuthed, userCtrl.Update);
-app.post('/login', passport.authenticate('local', {successRedirect: "/me"}));
-app.get('/logout', function(req, res, next){
+app.post('/api/users/login', passport.authenticate('local', {successRedirect: "/api/users/me"}));
+app.get('/api/logout', function(req, res, next){
+  console.log("here's a hit!!!");
   req.logout();
   return res.status(200).send('Logged Out');
 });
@@ -64,8 +64,6 @@ app.delete('/api/projects/:id', projectCtrl.Delete);
 //Team
 app.post("/api/team", teamCtrl.Create);
 app.put("/api/team/:id", teamCtrl.Update);
-
-
 
 app.listen(port, function(){
     console.log("Hey Listen! on: " + port);

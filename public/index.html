@@ -3,30 +3,56 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="icon" href="http://clipartsign.com/upload/2016/02/22/double-shield-clip-art-at-vector-clip-art.png">
+    <link rel="icon" href="http://i.imgur.com/u6SQVFi.png">
     <title>Superheroic Task Management</title>
     <link rel="stylesheet" href="./css/style.css" >
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/please-wait.css">
     <link rel="stylesheet" href="./css/reset.css">
+    <link href="./js/bootstrap/ui-bootstrap-custom-tpls-1.3.2.js"></link>
+
     <script  src="./js/please-wait.js"></script>
 </head>
 
 <body ng-controller="mainCtrl">
-
-  <!-- <script type="text/javascript">
-        window.loading_screen = window.pleaseWait({});
-        </script> -->
+<div class="inner">
     <header>
         <section class="header-wrapper">
-            <div id="team-id-card">
+
+            <button id="team-id-card" ng-model="teamDropdownMenu"  ng-click="teamDropdownMenu = !teamDropdownMenu">
+              <div>
                 <p>We're a Team!</p>
+              </div>
+              <div class="team-dropdown-arrow">
+              <img src="./assets/dropdown.png">
+</div>
+            </button>
+            <button id="user-id-card" ng-model="userDropdownMenu"  ng-click="userDropdownMenu = !userDropdownMenu">
+              <div class="user-dropdown-arrow" >
+                <img src="./assets/dropdown.png">
+              </div>
+              <div>
+                <p>{{userName.firstname}} {{userName.lastname}}</p>
+
             </div>
-            <div id="user-id-card">
-                <p>John Smithereness</p>
-            </div>
+          </button>
         </section>
     </header>
+    <div class="team-uparrow-menu" ng-show="teamDropdownMenu">
+      <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+      </ul>
+    </div>
+
+    <div class="user-uparrow-menu" ng-show="userDropdownMenu">
+      <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+      </ul>
+
+    </div>
+
     <container class="content-wrapper">
 
         <section class="left-menu-panel">
@@ -38,21 +64,25 @@
             <ui-view></ui-view>
             </section>
 
-
     </container>
-
+</div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js" ></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js" integrity="sha256-DI6NdAhhFRnO2k51mumYeDShet3I8AKCQf/tf7ARNhI=" crossorigin="anonymous"></script>
     <script src="./js/app.js"></script>
     <script src="./js/controllers/dashboardController.js"></script>
     <script src="./js/controllers/teamController.js"></script>
     <script src="./js/controllers/tasksController.js"></script>
     <script src="./js/controllers/mainCtrl.js"></script>
     <script src="./js/controllers/projectController.js"></script>
+    <script src="./js/controllers/loginController.js"></script>
     <script src="./js/services/tasksService.js"></script>
+    <script src="./js/services/loginService.js"></script>
     <script src="./js/directives/taskDirective.js"></script>
     <script src="./js/directives/otherDirectives.js"></script>
+    <script src="./js/bootstrap/ui-bootstrap-custom-1.3.2.js"></script>
+    <script src="./js/bootstrap/ui-bootstrap-custom-tpls-1.3.2.js"></script>
 
 </body>
 

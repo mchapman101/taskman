@@ -8,7 +8,7 @@ var UserSchema = mongoose.Schema({
     firstname: {type: String, required: true},
     lastname: {type: String, required: true},
     password: {type: String, required: true},
-    email: {type: String, required: true},
+    email: {type: String, required: true, unique: true},
     job_title: String,
     active: Boolean,
     team: {type: objectId, ref: "Team"},
@@ -17,19 +17,19 @@ var UserSchema = mongoose.Schema({
         // avatar_path: URL,
 });
 
-// User.pre('save', function(next) {
-// 	var user = this;
-// 	if (!user.isModified('password'))	return next();
-//   var salt = bcrypt.genSaltSync(10);
-//   var hash = bcrypt.hashSync(user.password, salt);
-//   user.password = hash;
-//   return next(null, user);
-// });
+UserSchema.pre('save', function(next) {
+	var user = this;
+	if (!user.isModified('password'))	return next();
+  var salt = bcrypt.genSaltSync(10);
+  var hash = bcrypt.hashSync(user.password, salt);
+  user.password = hash;
+  return next(null, user);
+});
 
-// User.methods.verifyPassword = function(reqBodyPassword) {
-//   var user = this;
-//   return bcrypt.compareSync(reqBodyPassword, user.password);
-// };
+UserSchema.methods.verifyPassword = function(reqBodyPassword) {
+  var user = this;
+  return bcrypt.compareSync(reqBodyPassword, user.password);
+};
 
 
 module.exports = mongoose.model('User', UserSchema);

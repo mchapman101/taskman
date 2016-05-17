@@ -81,9 +81,9 @@
   };
   PleaseWait = (function() {
     PleaseWait._defaultOptions = {
-      backgroundColor: '#2c3e50',
-      logo: "/assets/Task Manager Main Splash-alt.png",
-      loadingHtml: "<div class='spinner'></div>",
+      backgroundColor: null,
+      logo: null,
+      loadingHtml: null,
       template: "<div class='pg-loading-inner'>\n  <div class='pg-loading-center-outer'>\n    <div class='pg-loading-center-middle'>\n      <h1 class='pg-loading-logo-header'>\n        <img class='pg-loading-logo'></img>\n      </h1>\n      <div class='pg-loading-html'>\n      </div>\n    </div>\n  </div>\n</div>",
       onLoadedCallback: null
     };

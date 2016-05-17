@@ -1,16 +1,25 @@
-angular.module('taskman',['ui.router'])
+angular.module('taskman', ['ui.router'])
 
 .config(['$stateProvider','$urlRouterProvider',
-  function(stateProvider, urlRouterProvider){
+  function($stateProvider, $urlRouterProvider){
 
 
-urlRouterProvider.otherwise('/dashboard');
+$urlRouterProvider.otherwise('/login');
 
-stateProvider
+$stateProvider
   .state('dashboard', {
     url: '/dashboard',
     templateUrl: '/views/dashboard.html',
-    controller: "dashboardController"
+    controller: "dashboardController",
+    resolve: {
+      user: function(loginService, $state) {
+        return loginService.getUser().then(function(response) {
+          return response.data;
+        }).catch(function(err) {
+          $state.go('login');
+        });
+      }
+    }
   })
 
   .state('project', {
@@ -29,6 +38,13 @@ stateProvider
     url: '/tasks',
     templateUrl: '/views/tasks.html',
     controller: "tasksController"
+  })
+
+  .state('login', {
+    url: '/login',
+    templateUrl: '/views/login.html',
+    controller: "loginController"
   });
+
 
 }]);
