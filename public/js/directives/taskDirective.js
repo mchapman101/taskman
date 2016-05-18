@@ -20,10 +20,8 @@ angular.module('taskman')
         link: function(scope, element, attribute, $timeout) {
           scope.showRTMP = false;
           scope.selectTask = function(task){
-
             scope.selectedTask = task;
             scope.showRTMP = true;
-
             console.log("hit", scope.showRTMP, scope.selectedTask);
           };
 

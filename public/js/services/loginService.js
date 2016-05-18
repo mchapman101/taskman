@@ -10,7 +10,7 @@ angular.module('taskman').service('loginService', function($http){
       });
     };
 
-    this.getUser = function() {
+  this.getUser = function() {
   return $http({
     method: 'GET',
     url: '/api/users/me'
@@ -28,6 +28,17 @@ this.register = function(user) {
       return response;
     });
   };
+
+  this.updateUser = function(user) {
+    return $http({
+      method: "PUT",
+      url: "/api/users/" + user._id,
+      data: user
+    }).then(function(response){
+      return response.data;
+    });
+  };
+
 
   this.logout = function() {
     return $http({

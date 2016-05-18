@@ -1,10 +1,10 @@
 angular.module('taskman')
 
-.run(function($rootScope) {
-	angular.element(document).on("click", function(e) {
-		$rootScope.$broadcast("documentClicked", angular.element(e.target));
-	});
-})
+// .run(function($rootScope) {
+// 	angular.element(document).on("click", function(e) {
+// 		$rootScope.$broadcast("documentClicked", angular.element(e.target));
+// 	});
+// })
 
 .directive("leftNavbar", function() {
     return {
@@ -12,6 +12,15 @@ angular.module('taskman')
         restrict: "E",
     };
 })
+
+.directive("userDropdownMenu", function() {
+    return {
+        templateUrl: "/js/directives/userDropdown.html",
+        restrict: "E",
+				controller: "dropdownmenuCtrl"
+    };
+})
+
 
 .directive("datepicker", function() {
     return {

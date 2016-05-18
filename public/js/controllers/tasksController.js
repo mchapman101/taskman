@@ -1,6 +1,8 @@
-angular.module('taskman').controller("tasksController", function($scope, tasksService, $filter) {
+angular.module('taskman').controller("tasksController", function($scope, tasksService, $filter, user, $rootScope) {
 
-    // $scope.taskTest = "Here's a task for you to do!";
+  $scope.userName = user.data;
+  $rootScope.userName = $scope.userName;
+
 
     $scope.getTask = function() {
         tasksService.getTasks().then(function(response) {

@@ -18,6 +18,7 @@ var UserSchema = mongoose.Schema({
 });
 
 UserSchema.pre('save', function(next) {
+  console.log("presave");
 	var user = this;
 	if (!user.isModified('password'))	return next();
   var salt = bcrypt.genSaltSync(10);

@@ -14,20 +14,21 @@
     <script  src="./js/please-wait.js"></script>
 </head>
 
-<body ng-controller="mainCtrl">
+<body>
 <div class="inner">
     <header>
+
         <section class="header-wrapper">
 
-            <button id="team-id-card" ng-model="teamDropdownMenu"  ng-click="teamDropdownMenu = !teamDropdownMenu">
+            <div id="team-id-card" ng-model="teamDropdownMenu"  ng-click="teamDropdownMenu = !teamDropdownMenu">
               <div>
                 <p>We're a Team!</p>
               </div>
               <div class="team-dropdown-arrow">
               <img src="./assets/dropdown.png">
 </div>
-            </button>
-            <button id="user-id-card" ng-model="userDropdownMenu"  ng-click="userDropdownMenu = !userDropdownMenu">
+            </div>
+            <div id="user-id-card" ng-model="userDropdownMenu"  ng-click="userDropdownMenu = !userDropdownMenu">
               <div class="user-dropdown-arrow" >
                 <img src="./assets/dropdown.png">
               </div>
@@ -35,7 +36,7 @@
                 <p>{{userName.firstname}} {{userName.lastname}}</p>
 
             </div>
-          </button>
+          </div>
         </section>
     </header>
     <div class="team-uparrow-menu" ng-show="teamDropdownMenu">
@@ -46,10 +47,7 @@
     </div>
 
     <div class="user-uparrow-menu" ng-show="userDropdownMenu">
-      <ul>
-        <li>Item1</li>
-        <li>Item2</li>
-      </ul>
+      <user-dropdown-menu></user-dropdown-menu>
 
     </div>
 
@@ -76,10 +74,15 @@
     <script src="./js/controllers/tasksController.js"></script>
     <script src="./js/controllers/mainCtrl.js"></script>
     <script src="./js/controllers/projectController.js"></script>
+    <script src="./js/controllers/dropdownmenu.js"></script>
     <script src="./js/controllers/loginController.js"></script>
     <script src="./js/services/tasksService.js"></script>
     <script src="./js/services/loginService.js"></script>
+    <script src="./js/services/projectService.js"></script>
+    <script src="./js/services/loadingScreenService.js"></script>
+
     <script src="./js/directives/taskDirective.js"></script>
+    <script src="./js/directives/projectDirective.js"></script>
     <script src="./js/directives/otherDirectives.js"></script>
     <script src="./js/bootstrap/ui-bootstrap-custom-1.3.2.js"></script>
     <script src="./js/bootstrap/ui-bootstrap-custom-tpls-1.3.2.js"></script>

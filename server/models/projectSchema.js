@@ -5,7 +5,7 @@ var objectId = mongoose.Schema.Types.ObjectId;
 var ProjectSchema = mongoose.Schema({
     createdAt: {type: Date, default: Date.now},
     title: {type: String, required: true},
-    description: {type: String,required: true},
+    description: String,
     creator: {type: objectId, ref: 'User'},
     users: [{type: objectId, ref: 'User'}],
     team: {type: objectId, ref: "Team"},

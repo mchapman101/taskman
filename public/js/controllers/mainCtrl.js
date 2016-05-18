@@ -1,29 +1,28 @@
-angular.module('taskman').controller("mainCtrl", function($scope, $state, loginService){
+angular.module('taskman').controller("mainCtrl", function($scope, $state, loginService, $rootScope){
 
-$scope.showThis = false;
+$scope.userName = $rootScope.userName;
 
-$scope.test = "Testing, testing!";
+$rootScope.$watch('userName', function(nv, ov){
+  console.log("update", nv, ov);
+  $scope.userName = nv;
+});
 
-$scope.userName = function(){
+// $scope.getUser = function(){
+//   loginService.getUser().then(function(response){
+//     $scope.user = response.data;
+//   });
+// };
+//
+// $scope.getUser();
+
+$scope.getUser = function(){
   loginService.getUser().then(function(response){
-    console.log("hit1", response);
-    $scope.userName = response.data[0];
-    console.log(response.data[0].firstname);
+    console.log(response.data);
+    $scope.userName = response.data;
   });
 };
 
-$scope.userName();
-
-var loadingScreen = window.pleaseWait({
-  backgroundColor: '#2c3e50',
-  logo: "/assets/Task Manager Main Splash-alt.png",
-  loadingHtml: "<div class='spinner'></div>",
-});
-
-
-setTimeout(function(){
-  loadingScreen.finish();
-}, 1000);
+// $scope.getUser();
 
 $scope.logout = function (user) {
   console.log("hit-logout");

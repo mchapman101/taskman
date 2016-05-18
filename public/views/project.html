@@ -1,4 +1,33 @@
 <div id="project-container">
-  <h3>Hey, these are your projects!</h3>
-  <p>{{projectTest}}</p>
+    <div class="project-input-box">
+        <img src="/assets/addPlus(32px).png">
+        <form ng-submit="addProject(project)">
+            <input id="project-input-box-form" type="text" ng-model="project.title" placeholder="Add a New Project Here!">
+        </form>
+    </div>
+    <div class="project-list" ng-repeat="project in projects">
+        <project-list project="project" ng-click="selectProject(project)"></project-list>
+    </div>
+
+
+    <section class="right-project-menu-popup" style="width: 500px" ng-show="showRPMP"
+><img src="/assets/removeX(32px).png" ng-click="showRPMP = false">
+
+        <form ng-submit="updateProject(selectedProject)">
+            Title:
+            <input type="text" ng-model="selectedProject.title" ng-model-options="{updateOn: 'submit'}">
+            </input>
+            Description:
+            <input type="text" ng-model="selectedProject.description" ng-model-options="{updateOn: 'submit'}">
+            </input>
+            <button type="submit">Update Project</button>
+        </form>
+        <div ng-model="formatDate">
+        </div>
+            </div>
+            </input>
+        </form>
+
+    </section>
+
 </div>

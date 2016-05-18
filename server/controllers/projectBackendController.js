@@ -8,6 +8,13 @@ module.exports = {
         });
     },
 
+    Read: function(req, res, next) {
+        Projects.find(req.body, function(err, response) {
+            return err ? res.status(500).send(err) : res.send(response);
+        });
+    },
+
+
     Find: function(req, res) {
         Projects.findById(req.params.id, function(err, response) {
             return err ? res.status(500).send(err) : res.send(response);
