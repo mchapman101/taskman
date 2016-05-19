@@ -14,6 +14,13 @@ module.exports = {
         });
     },
 
+    ReadAndPopulate: function(req, res, next) {
+        Projects.find(req.body)
+        .populate("tasks")
+        .exec(function(err, response) {
+            return err ? res.status(500).send(err) : res.send(response);
+        });
+    },
 
     Find: function(req, res) {
         Projects.findById(req.params.id, function(err, response) {

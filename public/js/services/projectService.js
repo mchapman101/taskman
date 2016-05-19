@@ -28,4 +28,33 @@ this.updateProject = function(project) {
     return response.data;
   });
 };
+
+this.getUserTasks = function(project){
+  return $http({
+    method: "GET",
+    url: '/api/projects/' + project._id
+  }).then(function(response){
+    return response.data;
+  });
+};
+
+this.deleteProject = function(project){
+  return $http({
+    method: "DELETE",
+    url: "/api/projects/" + project
+  }).then(function(response){
+    return response.data;
+  });
+};
+
+this.getAndPopulateProjects = function(){
+  return $http({
+    method: "GET",
+    url: "/api/projects/populate"
+  }).then(function(response){
+    return response.data;
+  });
+};
+
+
 });

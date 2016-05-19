@@ -1,3 +1,12 @@
+/*
+Stylesheet for TASKMAN Single-Page Application
+Author: Mark Chapman
+*/
+
+
+
+/****************STYLES ******************/
+
 * {
 /*border: 1px solid red;*/
 font-family: Calibri, sans-serif;
@@ -21,7 +30,10 @@ a {
   color: #ecf0f1;
 
 }
-.login-container {
+
+
+/*****************LOGIN*******************/
+.login-modal {
   height: 100%;
   width: 100%;
   position: fixed;
@@ -31,37 +43,110 @@ a {
   left: 0px;
 }
 
-.login {
-  position: relative;
-  margin: 80px auto;
-  width: 400px;
-  padding-right: 32px;
-  font-weight: 300;
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 130px;
+}
+
+.login-container input[type="text"], input[type="password"] {
+  padding:10px;
+  margin: 5px 0;
+  border: none;
+  /*border-radius: 5px;*/
+  outline: none;
+  transition: 0.25s;
+  box-sizing: border-box;
+  background-color: #ecf0f1;
+}
+
+.login-container input:focus {
+  border:3px solid #e74c3c;
+}
+
+.label-text {
+  font-size: 2em;
+}
+
+.taskman-font {
+  color: #e74c3c;
+  font-family: serif;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;;
   color: #ecf0f1;
-  text-shadow: 1px 1px 0 rgba(black, .8);
-  p { margin: 0 0 10px; }
+  width: 40%;
+margin-bottom: 5px;
+}
+
+.login-mid-border{
+  display: flex;
+  flex-direction: row;
+  width: 40%;
+  justify-content: space-between;;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-bottom: 30px;
+
+}
+
+.login-mid-border>button {
+  background-color: #e74c3c;
+  border: none;
+  color: #ecf0f1;
+  padding: 15px 30px;
+  text-decoration: none;
+  /*margin: 4px 2px;*/
+  cursor: pointer;
+  width: 49%
 }
 
 .registration-container {
-  padding:10px;
-  font-weight: 300;
   color: #ecf0f1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 40%;
 }
 
-.registration-container.ng-enter, .registration-container.ng-leave {
-  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+.registration-form {
+  color: #ecf0f1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
 }
 
-.registration-container.ng-enter,
-.registration-container.ng-leave.ng-leave-active {
-  opacity:0;
+.name-form {
+display: flex;
+flex-direction: row;
+justify-content: space-between;;
+align-items: center;
+flex-wrap: nowrap;
+}
+.name-form>input {
+  width: 49%;
 }
 
-.registration-container.ng-leave,
-.registration-container.ng-enter.ng-enter-active {
-  opacity:1;
+.registration-form>button {
+  background-color: #e74c3c;
+  border: none;
+  color: #ecf0f1;
+  padding: 15px 30px;
+  text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 5px;
 }
 
+
+/*****************HEADER*******************/
 
 header {
   background-color: #2c3e50;
@@ -91,8 +176,13 @@ header {
   flex-direction: row;
 }
 
+.team-id-card-label {
+  width: 99%;
+  text-align: center;
+
+}
+
 .team-dropdown-arrow {
-  margin-left: 12px;
 }
 
 #user-id-card {
@@ -106,143 +196,6 @@ flex-direction: row;
 .user-dropdown-arrow {
   margin-right: 10px;
 }
-
-.content-wrapper {
-  flex-direction: column;
-}
-
-.left-menu-panel {
-background-color: #2980B9;
-height: 92vh;
-max-width: 20%;
-min-width: 200px;
-float: left;
-}
-
-.left-menu-wrapper {
-  color: #ecf0f1;
-  font-size: 18px;
-  line-height: 1.5;
-}
-
-.navbar>ul>li:hover {
-  background-color: #3498DB;
-}
-
-.navbar-menu {
-  padding-left: 1em;
-  margin-top: 30px;
-}
-
-.navbar-logo {
-  display: inline;
-  position: absolute;;
-  bottom: 20px;
-  margin-left: 15px;
-}
-
-/*.navbar-logo>img {
-  height: 120px;;
-  width: 120px;;
-}*/
-
-
-.main-viewport {
-  width: 100%;
-}
-
-#dashboard-container {
-  color: #2c3e50;
-  display: flex;
-  flex-direction: column;
-}
-
-
-#project-container {
-  color: #2c3e50;
-  display: flex;
-  flex-direction: column;
-}
-
-.right-project-menu-popup {
-width: 500px;
-height: 92%;
-right: 0px;
-top: 60px;
-bottom: 0px;
-z-index: 330;
-position: absolute;
-background-color: #ecf0f1;
-border-left: 1px solid #2c3e50;
-}
-
-
-#tasks-container {
-  color: #2c3e50;
-}
-
-.right-task-menu-popup {
-width: 500px;
-height: 92%;
-right: 0px;
-top: 60px;
-bottom: 0px;
-z-index: 330;
-position: absolute;
-background-color: #ecf0f1;
-border-left: 1px solid #2c3e50;
-}
-
-.task-input-box {
-display: flex;
-}
-
-.task-input-box>img{
-  height: 32px;
-  justify-content: center;
-  margin-top: 5px;
-}
-
-
-#task-input-box-form {
-  font-size: 2em;
-  margin-left: 15px;
-  border: none;
-  background: transparent;
-
-}
-
-.task-list{
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-}
-
-.task-list-item:hover {
-background-color: rgba(52, 152, 219, 0.65)
-}
-
-.checked-out {
-  text-decoration: line-through;
-}
-
-
-#team-container {
-  color: #2c3e50;
-}
-/*DATE PICKER*/
-.ui-datepicker {
-  background-color: green;
-}
-
-.ui-widget-header {
-  background-color: gold;
-}
-
-.ui-widget-content {
-  color: blue;
-}
-
 
 .team-uparrow-menu {
 width:250px;
@@ -304,4 +257,148 @@ border-color: transparent transparent #ecf0f1 transparent;
 /*border color should be same as div div background color*/
 border-style: solid;
 border-width: 10px;
+}
+
+
+/*****************LEFT MENU*******************/
+
+.left-menu-panel {
+background-color: #2980B9;
+height: 92vh;
+max-width: 20%;
+min-width: 200px;
+float: left;
+}
+
+.left-menu-wrapper {
+  color: #ecf0f1;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.navbar>ul>li:hover {
+  background-color: #3498DB;
+}
+
+.navbar-menu {
+  padding-left: 1em;
+  margin-top: 30px;
+}
+
+.navbar-logo {
+  display: inline;
+  position: absolute;;
+  bottom: 20px;
+  margin-left: 15px;
+}
+
+/*****************BODY*******************/
+
+.content-wrapper {
+  flex-direction: column;
+}
+
+.main-viewport {
+  width: 100%;
+}
+
+/*************DASHBOARD***************/
+
+
+#dashboard-container {
+  color: #2c3e50;
+  display: flex;
+  flex-direction: column;
+}
+
+/*************PROJECTS***************/
+
+
+#project-container {
+  color: #2c3e50;
+  display: flex;
+  flex-direction: column;
+}
+
+.right-project-menu-popup {
+width: 500px;
+height: 92%;
+right: 0px;
+top: 60px;
+bottom: 0px;
+z-index: 330;
+position: absolute;
+background-color: #ecf0f1;
+border-left: 1px solid #2c3e50;
+}
+
+/*************TASKS***************/
+
+
+#tasks-container {
+  color: #2c3e50;
+}
+
+.right-task-menu-popup {
+width: 500px;
+height: 92%;
+right: 0px;
+top: 60px;
+bottom: 0px;
+z-index: 330;
+position: absolute;
+background-color: #ecf0f1;
+border-left: 1px solid #2c3e50;
+}
+
+.task-input-box {
+display: flex;
+}
+
+.task-input-box>img{
+  height: 32px;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+
+#task-input-box-form {
+  font-size: 2em;
+  margin-left: 15px;
+  border: none;
+  background: transparent;
+
+}
+
+.task-list{
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.task-list-item:hover {
+background-color: rgba(52, 152, 219, 0.65)
+}
+
+.checked-out {
+  text-decoration: line-through;
+}
+
+
+/*#team-container {
+  color: #2c3e50;
+}*/
+
+/*************DATEPICKER***************/
+
+.ui-datepicker {
+  background-color: green;
+}
+
+.ui-widget-header {
+  background-color: gold;
+}
+
+.ui-widget-content {
+  color: blue;
 }

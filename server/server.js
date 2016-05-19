@@ -58,9 +58,11 @@ app.get('/api/logout', function(req, res, next){
 //Projects
 app.post('/api/projects', projectCtrl.Create);
 app.get('/api/projects', projectCtrl.Read);
+app.get("/api/projects/populate", projectCtrl.ReadAndPopulate);
 app.get('/api/projects/:id', projectCtrl.Find);
 app.put('/api/projects/:id', projectCtrl.Update);
 app.delete('/api/projects/:id', projectCtrl.Delete);
+
 
 //Team
 app.post("/api/team", teamCtrl.Create);

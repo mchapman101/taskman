@@ -14,18 +14,23 @@
 ><img src="/assets/removeX(32px).png" ng-click="showRPMP = false">
 
         <form ng-submit="updateProject(selectedProject)">
-            Title:
+            <label>Title:
             <input type="text" ng-model="selectedProject.title" ng-model-options="{updateOn: 'submit'}">
-            </input>
-            Description:
+          </input></label>
+          <br>
+            <label>Description:
             <input type="text" ng-model="selectedProject.description" ng-model-options="{updateOn: 'submit'}">
-            </input>
+          </input></label>
+
+          <div ng-repeat="task in selectedProject.tasks track by $index">
+            <select ng-model="selectedProject.tasks[$index]" ng-options="task._id as task.title for task in userTasks">
+            </select>
+            <button type="button" ng-click="selectedProject.tasks.splice($index,1)">X</button>
+          </div>
+          <button type="button" ng-click="selectedProject.tasks.push('');">Add Task</button>
+
             <button type="submit">Update Project</button>
-        </form>
-        <div ng-model="formatDate">
-        </div>
-            </div>
-            </input>
+            <button type="button" ng-click="deleteProject(selectedProject)">Delete Project</button>
         </form>
 
     </section>

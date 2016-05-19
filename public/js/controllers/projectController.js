@@ -1,7 +1,9 @@
-angular.module('taskman').controller("projectController", function($scope, projectService, $rootScope, user){
+angular.module('taskman').controller("projectController", function($scope, projectService, tasksService, $rootScope, user, $state){
 
   $scope.userName = user.data;
   $rootScope.userName = $scope.userName;
+
+  $scope.showRPMP = false;
 
   $scope.getProjects = function(){
     projectService.getProjects().then(function(response){
@@ -9,7 +11,7 @@ angular.module('taskman').controller("projectController", function($scope, proje
     });
   };
 
-  $scope.showRPMP = false;
+  $scope.getProjects();
 
   $scope.selectProject = function(project){
     $scope.selectedProject = project;
@@ -28,11 +30,24 @@ $scope.addProject = function(project){
 };
 
 $scope.updateProject = function(project){
-  console.log(project, "Project-Hit!");
-  projectService.updateProject(project).then(function(reresponse){
+  console.log($scope.selectedProject, "Project-Hit!");
+  projectService.updateProject(project).then(function(){
     $scope.getProjects();
   });
 };
 
-$scope.getProjects();
+$scope.getUserTasks = function(){
+  tasksService.getTasks().then(function(response){
+    console.log(response);
+    $scope.userTasks = response;
+  });
+};
+$scope.getUserTasks();
+
+$scope.deleteProject = function(selectedProject){
+  console.log(selectedProject);
+  projectService.deleteProject(selectedProject._id).then(function(response){
+    $state.go($state.current, {}, {reload: true});
+  });
+};
 });

@@ -1,13 +1,14 @@
 <div id="dashboard-container">
-  <div class="task-input-box">
-    <input type="text" placeholder="New Task">
-  </div>
   <div class="todays-headline">
-    <ul class="sortable"  sortable>
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-      <li>Item 4</li>
-      <li>Item 5</li>
-    </ul><div>{{dashTest}}</div>
+    <h1> Here's what's happening!</h1>
+    <hr/>
+  </div>
+  <div class="dashboard-project-list" ng-repeat="project in projects">
+    {{project.title}}
+    <div class="dashboard-task-list" ng-repeat="task in project.tasks">
+      {{task.title}}
+      Due: {{task.deadline | date: "fullDate"}}
+    </div>
+  <hr/>
+  </div>
 </div>

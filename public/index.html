@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <link rel="icon" href="http://i.imgur.com/u6SQVFi.png">
     <title>Superheroic Task Management</title>
-    <link rel="stylesheet" href="./css/style.css" >
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/please-wait.css">
     <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css" >
     <link href="./js/bootstrap/ui-bootstrap-custom-tpls-1.3.2.js"></link>
 
     <script  src="./js/please-wait.js"></script>
@@ -21,8 +21,8 @@
         <section class="header-wrapper">
 
             <div id="team-id-card" ng-model="teamDropdownMenu"  ng-click="teamDropdownMenu = !teamDropdownMenu">
-              <div>
-                <p>We're a Team!</p>
+              <div class="team-id-card-label">
+                <p>{{teamName}}</p>
               </div>
               <div class="team-dropdown-arrow">
               <img src="./assets/dropdown.png">
@@ -39,9 +39,9 @@
           </div>
         </section>
     </header>
-    <div class="team-uparrow-menu" ng-show="teamDropdownMenu">
+    <div class="team-uparrow-menu"  ng-show="teamDropdownMenu">
       <ul>
-        <li>Item1</li>
+        <input type="text" ng-model="teamName" placeholder="Name your Team!">
         <li>Item2</li>
       </ul>
     </div>
