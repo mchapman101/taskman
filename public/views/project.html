@@ -1,37 +1,57 @@
 <div id="project-container">
-    <div class="project-input-box">
-        <img src="/assets/addPlus(32px).png">
-        <form ng-submit="addProject(project)">
-            <input id="project-input-box-form" type="text" ng-model="project.title" placeholder="Add a New Project Here!">
+
+    <div class="project-input-header">
+
+        <form ng-submit="addProject(project)" class="project-input-box-form">
+            <input  type="text" ng-model="project.title" placeholder="Add a New Project Here!">
         </form>
     </div>
+
+    <div class="project-list-container">
+
     <div class="project-list" ng-repeat="project in projects">
-        <project-list project="project" ng-click="selectProject(project)"></project-list>
+        <project-list project="project" ng-model="showDescription" ng-click="selectProject(project); showDescription=!showDescription"></project-list>
+        <div class="project-list-description" ng-show="showDescription">
+          "{{project.description}}"
+        </div>
     </div>
+  </div>
 
 
     <section class="right-project-menu-popup" style="width: 500px" ng-show="showRPMP"
-><img src="/assets/removeX(32px).png" ng-click="showRPMP = false">
+>
+  <div class="right-project-menu-popup-header">
+    <img src="/assets/removeX(32px).png" ng-click="showRPMP = false">
+  </div>
 
-        <form ng-submit="updateProject(selectedProject)">
-            <label>Title:
+  <div class="right-project-menu-popup-body">
+    <div class="project-menu-form">
+
+        <form  ng-submit="updateProject(selectedProject)">
             <input type="text" ng-model="selectedProject.title" ng-model-options="{updateOn: 'submit'}">
-          </input></label>
-          <br>
-            <label>Description:
+          </input>
             <input type="text" ng-model="selectedProject.description" ng-model-options="{updateOn: 'submit'}">
-          </input></label>
+          </input>
+        </div>
 
-          <div ng-repeat="task in selectedProject.tasks track by $index">
+
+          <div class="project-menu-task-selections" ng-repeat="task in selectedProject.tasks track by $index">
             <select ng-model="selectedProject.tasks[$index]" ng-options="task._id as task.title for task in userTasks">
             </select>
-            <button type="button" ng-click="selectedProject.tasks.splice($index,1)">X</button>
+
+            <button type="button" ng-click="selectedProject.tasks.splice($index,1)"></button>
           </div>
+          </div>
+
+          <div class="project-menu-footer">
+
           <button type="button" ng-click="selectedProject.tasks.push('');">Add Task</button>
 
             <button type="submit">Update Project</button>
             <button type="button" ng-click="deleteProject(selectedProject)">Delete Project</button>
         </form>
+      </div>
+
 
     </section>
 

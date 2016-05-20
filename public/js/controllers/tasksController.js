@@ -37,6 +37,6 @@ $scope.updateTask= function(task){
 };
 
 $scope.formatDate = function(date){
-  return $filter('date')(date, 'fullDate');
+  return $filter('date')(date, 'DD, MM, yy');
 };
 });

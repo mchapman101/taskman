@@ -29,7 +29,7 @@ angular.module('taskman')
             $(function() {
                 $(".datePicker").datepicker({
                     showButtonPanel: true,
-                    dateFormat: 'DD, MM, yy',
+                    dateFormat: 'DD, MM d,  yy',
                     onClose: function(selectedDate) {
                         scope.selectedTask.deadline = selectedDate;
                         scope.updateTask(scope.selectedTask);
@@ -45,7 +45,9 @@ angular.module('taskman')
     restrict: "A",
     link: function(scope, element, attribute){
       $(function (){
-        $(".sortable").sortable();
+        $(".sortable").sortable({
+          scroll: false
+        });
         $(".sortable").disableSelection();
       });
     }

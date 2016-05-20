@@ -21,5 +21,20 @@ $scope.formatDate = function(date){
   return $filter('date')(date, 'fullDate');
 };
 
+$scope.updateTask= function(task){
+  console.log(task);
+  tasksService.updateTask(task).then(function(response) {
+    $scope.getTask();
+  });
+};
+
+
+$scope.selectTask = function(task){
+  $scope.selectedTask = task;
+  setTimeout(function(){
+    $scope.showRTMP = true;
+  }, 100);
+};
+
 
 });

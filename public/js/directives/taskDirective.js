@@ -22,7 +22,6 @@ angular.module('taskman')
           scope.selectTask = function(task){
             scope.selectedTask = task;
             scope.showRTMP = true;
-            console.log("hit", scope.showRTMP, scope.selectedTask);
           };
 
             scope.checkTask = function() {

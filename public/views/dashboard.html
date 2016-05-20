@@ -1,14 +1,22 @@
 <div id="dashboard-container">
-  <div class="todays-headline">
-    <h1> Here's what's happening!</h1>
-    <hr/>
-  </div>
-  <div class="dashboard-project-list" ng-repeat="project in projects">
-    {{project.title}}
-    <div class="dashboard-task-list" ng-repeat="task in project.tasks">
-      {{task.title}}
-      Due: {{task.deadline | date: "fullDate"}}
+    <div class="todays-headline">
+        <h1> Here's what's going on!</h1>
     </div>
-  <hr/>
-  </div>
+    <div class="dashboard-project-list sortable" ng-repeat="project in projects">
+        <span id="project-title">{{project.title}}</span>
+
+        <div class="dashboard-task-list" ng-repeat="task in project.tasks">
+            <tasks-list task="task" ng-model="showDate" ng-click='selectTask(task); showDate=!showDate' ></tasks-list>
+
+            <form ng-submit="updateDeadline(selectedTask)"
+            ng-click='selectTask(task)' ng-show="showDate">
+                <div>
+                    Due by:
+                    <input class="datePicker dashboard-deadline" type="button" datepicker value="{{task.deadline | date: 'fullDate'}}">
+                    </input>
+                </div>
+                </input>
+            </form>
+        </div>
+    </div>
 </div>

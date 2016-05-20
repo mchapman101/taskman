@@ -21,15 +21,14 @@
             </input>
         </form>
 
-        Assigned Users: {{selectedTask.users}}
         <div ng-model="formatDate">
-            Created At: {{formatDate(selectedTask.createdAt)}}
+            Created At: {{task.deadline | date:"fullDate"}}
         </div>
 
         <form ng-submit="updateDeadline(selectedTask)">
             <div ng-model="formatDate">
                 Deadline:
-                <input class="datePicker" type="button" datepicker value="{{formatDate(selectedTask.deadline)}}">
+                <input class="datePicker" type="button" datepicker value="{{selectedTask.deadline | date: 'fullDate'}}">
                 </input>
             </div>
             </input>
