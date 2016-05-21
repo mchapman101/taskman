@@ -30,7 +30,7 @@ $scope.addProject = function(project){
 };
 
 $scope.updateProject = function(project){
-  console.log($scope.selectedProject, "Project-Hit!");
+  console.log(project, "Project-Hit!");
   projectService.updateProject(project).then(function(){
     $scope.getProjects();
   });

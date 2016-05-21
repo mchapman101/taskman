@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="http://i.imgur.com/u6SQVFi.png">
     <title>Superheroic Task Management</title>
     <link rel="stylesheet" href="./css/normalize.css">
@@ -22,10 +23,10 @@
 
             <div id="team-id-card" ng-model="teamDropdownMenu"  ng-click="teamDropdownMenu = !teamDropdownMenu">
               <div class="team-id-card-label">
-                <p>{{teamName}}</p>
+                <p>Taskman</p>
               </div>
               <div class="team-dropdown-arrow">
-              <img src="./assets/dropdown.png">
+              <!-- <img src="./assets/dropdown.png"> -->
 </div>
             </div>
             <div id="user-id-card" ng-model="userDropdownMenu"  ng-click="userDropdownMenu = !userDropdownMenu">
@@ -39,12 +40,12 @@
           </div>
         </section>
     </header>
-    <div class="team-uparrow-menu"  ng-show="teamDropdownMenu">
+    <!-- <div class="team-uparrow-menu"  ng-show="teamDropdownMenu">
       <ul>
         <input type="text" ng-model="teamName" placeholder="Name your Team!">
         <li>Item2</li>
       </ul>
-    </div>
+    </div> -->
 
     <div class="user-uparrow-menu" ng-show="userDropdownMenu">
       <user-dropdown-menu></user-dropdown-menu>

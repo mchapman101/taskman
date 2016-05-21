@@ -1,31 +1,31 @@
-<ul>
-    Edit Profile Below
-    <hr/>
+<section class="user-dropdown-menu-container">
 
+<div class="user-dropdown-menu-header">
+    <p>Edit Profile Below<p>
+  </div>
+
+  <div  class="user-dropdown-menu-body">
     <form ng-submit="updateUser(userName)">
-        First Name:
         <input type="text" ng-model="userName.firstname" ng-model-options="{updateOn: 'submit'}">
         </input>
 
-        Last Name:
         <input type="text" ng-model="userName.lastname" ng-model-options="{updateOn: 'submit'}">
         </input>
 
-        Email:
         <input type="text" ng-model="userName.email" ng-model-options="{updateOn: 'submit'}">
         </input>
 
-        Password:
         <input type="password" ng-model="userName.password" placeholder="New Password Here!" ng-model-options="{updateOn: 'submit'}">
         </input>
 
-        Job Title:
-        <input type="text" ng-model="userName.jobTitle" ng-model-options="{updateOn: 'submit'}">
+        <input type="text" ng-model="userName.jobTitle" ng-model-options="{updateOn: 'submit'}" placeholder="Job Title">
         </input>
+        </div>
+        <div class="user-dropdown-menu-footer">
         <button type="submit" name="" ng-click="updateUser(userName)">Save Profile</button>
     </form>
 
-    <hr/>
-    <input type="button" name="Logout" ng-click="logout()" value="logout">
 
-</ul>
+    <input type="button" name="Logout" ng-click="logout()" value="Logout">
+  </div>
+  </section>

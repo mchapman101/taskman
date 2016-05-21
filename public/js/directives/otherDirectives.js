@@ -29,6 +29,9 @@ angular.module('taskman')
             $(function() {
                 $(".datePicker").datepicker({
                     showButtonPanel: true,
+                    showOn: "both",
+                    // buttonImageOnly: true,
+                    buttonImage: "./assets/Time-Date-To-icon.png",
                     dateFormat: 'DD, MM d,  yy',
                     onClose: function(selectedDate) {
                         scope.selectedTask.deadline = selectedDate;

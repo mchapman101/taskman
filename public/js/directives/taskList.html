@@ -1,5 +1,7 @@
 <div class="task-list-item" sortable>
 <input type="checkbox" class="checkbox" ng-model="checkedLine" ng-click='checkTask()'>
-<span>{{task.title}}</span>
-<span ><img src="/assets/removeX(16px).png" ng-show="checkedLine"  ng-click="removeTask()">
+{{task.title}}
+
+<img src="/assets/removeX(16px).png" ng-show="checkedLine"  ng-click="removeTask()" class="remove-task-x">
+
 </div>

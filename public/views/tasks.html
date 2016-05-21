@@ -1,38 +1,48 @@
 <div id="tasks-container">
 
-    <div class="task-input-box">
-        <img src="/assets/addPlus(32px).png">
-        <form ng-submit="addTask(task)">
-            <input id="task-input-box-form" type="text" ng-model="task.title" placeholder="Add a Task Here!">
+    <div class="task-input-header">
+
+        <form ng-submit="addTask(task)" class="task-input-box-form">
+            <input  type="text" ng-model="task.title" placeholder="Add a Task Here!">
         </form>
     </div>
+
+<div class="task-list-container">
 
     <ul class="sortable">
         <div class="task-list" ng-repeat="task in tasks" sortable>
             <tasks-list task="task" ng-click='selectTask(task)'></tasks-list>
         </div>
     </ul>
+  </div>
 
-    <section class="right-task-menu-popup" style="width: 500px" ng-show="showRTMP"><img src="/assets/removeX(32px).png" ng-click="showRTMP = false">
+    <section class="right-task-menu-popup" ng-show="showRTMP">
 
-        <form ng-submit="updateTask(selectedTask)">
-            Title:
+      <div class="right-task-menu-popup-header">
+        <img src="/assets/removeX(32px).png" ng-click="showRTMP = false">
+      </div>
+
+      <form ng-submit="updateTask(selectedTask)">
+
+      <div class="right-task-menu-popup-body">
+
             <input type="text" ng-model="selectedTask.title" ng-model-options="{updateOn: 'submit'}">
             </input>
         </form>
 
-        <div ng-model="formatDate">
-            Created At: {{task.deadline | date:"fullDate"}}
-        </div>
+        <div ng-model="formatDate" class="right-task-menu-popup-dates">
+            Created At: {{selectedTask.createdAt | date: 'fullDate'}}
 
         <form ng-submit="updateDeadline(selectedTask)">
             <div ng-model="formatDate">
                 Deadline:
                 <input class="datePicker" type="button" datepicker value="{{selectedTask.deadline | date: 'fullDate'}}">
-                </input>
+              </input><img  src="">
             </div>
-            </input>
         </form>
+      </div>
+    </div>
+
 
     </section>
   </div>

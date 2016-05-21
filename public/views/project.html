@@ -3,55 +3,54 @@
     <div class="project-input-header">
 
         <form ng-submit="addProject(project)" class="project-input-box-form">
-            <input  type="text" ng-model="project.title" placeholder="Add a New Project Here!">
+            <input type="text" ng-model="project.title" placeholder="Add a New Project Here!">
         </form>
     </div>
 
     <div class="project-list-container">
 
-    <div class="project-list" ng-repeat="project in projects">
-        <project-list project="project" ng-model="showDescription" ng-click="selectProject(project); showDescription=!showDescription"></project-list>
-        <div class="project-list-description" ng-show="showDescription">
-          "{{project.description}}"
+        <div class="project-list" ng-repeat="project in projects">
+            <project-list project="project" ng-model="showDescription" ng-click="selectProject(project); showDescription=!showDescription"></project-list>
+            <div class="project-list-description" ng-show="showDescription">
+                "{{project.description}}"
+            </div>
         </div>
     </div>
-  </div>
 
 
-    <section class="right-project-menu-popup" style="width: 500px" ng-show="showRPMP"
->
-  <div class="right-project-menu-popup-header">
-    <img src="/assets/removeX(32px).png" ng-click="showRPMP = false">
-  </div>
-
-  <div class="right-project-menu-popup-body">
-    <div class="project-menu-form">
-
-        <form  ng-submit="updateProject(selectedProject)">
-            <input type="text" ng-model="selectedProject.title" ng-model-options="{updateOn: 'submit'}">
-          </input>
-            <input type="text" ng-model="selectedProject.description" ng-model-options="{updateOn: 'submit'}">
-          </input>
+    <section class="right-project-menu-popup" ng-show="showRPMP">
+        <div class="right-project-menu-popup-header">
+            <img src="/assets/removeX(32px).png" ng-click="showRPMP = false">
         </div>
 
+        <form ng-submit="updateProject(selectedProject)">
+        <div class="right-project-menu-popup-body">
+            <div class="project-menu-form">
 
-          <div class="project-menu-task-selections" ng-repeat="task in selectedProject.tasks track by $index">
-            <select ng-model="selectedProject.tasks[$index]" ng-options="task._id as task.title for task in userTasks">
-            </select>
+                    <input type="text" ng-model="selectedProject.title" ng-model-options="{updateOn: 'blur'}">
+                    </input>
+                    <input type="text" ng-model="selectedProject.description" ng-model-options="{updateOn: 'blur'}">
+                    </input>
+            </div>
 
-            <button type="button" ng-click="selectedProject.tasks.splice($index,1)"></button>
-          </div>
-          </div>
 
-          <div class="project-menu-footer">
+            <div class="project-menu-task-selections" ng-repeat="task in selectedProject.tasks track by $index">
+                <select ng-model="selectedProject.tasks[$index]" ng-options="task._id as task.title for task in userTasks">
+                </select>
 
-          <button type="button" ng-click="selectedProject.tasks.push('');">Add Task</button>
+                <button type="button" ng-click="selectedProject.tasks.splice($index,1)"></button>
+            </div>
+        </div>
 
-            <button type="submit">Update Project</button>
+        <div class="project-menu-footer">
+
+            <button type="button" ng-click="selectedProject.tasks.push('');">Add Task</button>
+
+            <button type="button" ng-click="updateProject(selectedProject)">Update Project</button>
             <button type="button" ng-click="deleteProject(selectedProject)">Delete Project</button>
-        </form>
-      </div>
 
+        </div>
+</form>
 
     </section>
 

@@ -10,7 +10,7 @@
 
             <form ng-submit="updateDeadline(selectedTask)"
             ng-click='selectTask(task)' ng-show="showDate">
-                <div>
+                <div class="due-date">
                     Due by:
                     <input class="datePicker dashboard-deadline" type="button" datepicker value="{{task.deadline | date: 'fullDate'}}">
                     </input>

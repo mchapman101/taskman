@@ -20,11 +20,13 @@ this.getProjects = function(){
 };
 
 this.updateProject = function(project) {
+  console.log("Project Service Hit", project);
   return $http({
     method: "PUT",
     url: "/api/projects/" + project._id,
     data: project
   }).then(function(response){
+    console.log("returned response", response);
     return response.data;
   });
 };
