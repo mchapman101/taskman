@@ -6,19 +6,19 @@
 
   <div  class="user-dropdown-menu-body">
     <form ng-submit="updateUser(userName)">
-        <input type="text" ng-model="userName.firstname" ng-model-options="{updateOn: 'submit'}">
+        <input type="text" ng-model="userName.firstname">
         </input>
 
-        <input type="text" ng-model="userName.lastname" ng-model-options="{updateOn: 'submit'}">
+        <input type="text" ng-model="userName.lastname" >
         </input>
 
-        <input type="text" ng-model="userName.email" ng-model-options="{updateOn: 'submit'}">
+        <input type="text" ng-model="userName.email" >
         </input>
 
-        <input type="password" ng-model="userName.password" placeholder="New Password Here!" ng-model-options="{updateOn: 'submit'}">
+        <input type="password" ng-model="userName.password" placeholder="New Password Here!" >
         </input>
 
-        <input type="text" ng-model="userName.jobTitle" ng-model-options="{updateOn: 'submit'}" placeholder="Job Title">
+        <input type="text" ng-model="userName.job_title"  placeholder="Job Title">
         </input>
         </div>
         <div class="user-dropdown-menu-footer">

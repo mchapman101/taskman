@@ -5,9 +5,8 @@ module.exports = {
     ReadMe: function(req, res, next) {
         User.findById(req.user._id, function(err, response) {
           var userInfo = response.toObject();
-          console.log(userInfo);
           delete userInfo.password;
-          console.log(userInfo);
+          console.log("hit this!", userInfo);
 
             return err ? res.status(500).send(err) : res.send(userInfo);
         });
@@ -33,10 +32,16 @@ module.exports = {
           if(err){
             return res.status(500).send(err);
           } else {
-            response.password = req.body.password;
+
+            if (req.body.password) {
+              response.password = req.body.password;
             response.save(function(err, response){
+              console.log(err, "Error?");
               return err ? res.status(500).send(err) : res.send(response);
             });
+          } else {
+            res.send(response);
+          }
           }
         });
     },
