@@ -3,7 +3,8 @@ var bodyParser = require("body-parser");
 var session = require("express-session");
 var mongoose = require("mongoose");
 mongoose.connect('mongodb://localhost/taskman');
-var port = 3000;
+var serverConfig = require("./server_config.js");
+var port = serverConfig.serverPort;
 
 var config = require('./config');
 

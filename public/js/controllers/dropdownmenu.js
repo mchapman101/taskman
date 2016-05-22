@@ -22,6 +22,7 @@ $scope.logout = function (user) {
   console.log("hit-logout");
     loginService.logout(user).then(function(response) {
       $state.go('login');
+      $scope.userDropdownMenu = false;
     });
   };
 
