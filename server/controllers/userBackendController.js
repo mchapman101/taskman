@@ -6,8 +6,6 @@ module.exports = {
         User.findById(req.user._id, function(err, response) {
           var userInfo = response.toObject();
           delete userInfo.password;
-          console.log("hit this!", userInfo);
-
             return err ? res.status(500).send(err) : res.send(userInfo);
         });
     },

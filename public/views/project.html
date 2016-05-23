@@ -27,16 +27,15 @@
         <div class="right-project-menu-popup-body">
             <div class="project-menu-form">
 
-                    <input type="text" ng-model="selectedProject.title" ng-model-options="{updateOn: 'blur'}">
-                    </input>
-                    <input type="text" ng-model="selectedProject.description" ng-model-options="{updateOn: 'blur'}" placeholder="Add a project description here...">
-                    </input>
+                  <input type="text" ng-model="selectedProject.title" ng-model-options="{updateOn: 'blur'}">
+                  </input>
+                  <input type="text" ng-model="selectedProject.description" ng-model-options="{updateOn: 'blur'}" placeholder="Add a project description here...">
+                  </input>
             </div>
 
-
             <div class="project-menu-task-selections" ng-repeat="task in selectedProject.tasks track by $index">
-                <select ng-model="selectedProject.tasks[$index]" ng-options="task._id as task.title for task in userTasks">
-                </select>
+                <select ng-model="selectedProject.tasks[$index]._id" ng-options="task._id as task.title for task in userTasks">
+                </select> 
 
                 <button type="button" ng-click="selectedProject.tasks.splice($index,1)"></button>
             </div>

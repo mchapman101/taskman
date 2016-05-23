@@ -3,6 +3,7 @@ var Projects = require('../models/projectSchema.js');
 module.exports = {
 
     Create: function(req, res) {
+        req.body.creator = req.user._id;
         Projects.create(req.body, function(err, response) {
             return err ? res.status(500).send(err) : res.send(response);
         });
@@ -15,7 +16,7 @@ module.exports = {
     },
 
     ReadAndPopulate: function(req, res, next) {
-        Projects.find(req.body)
+        Projects.find({$or: [{users: {$in: [req.user._id]} }, {creator: req.user._id}]})
         .populate("tasks")
         .exec(function(err, response) {
             return err ? res.status(500).send(err) : res.send(response);

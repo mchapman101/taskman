@@ -6,7 +6,7 @@ angular.module('taskman').controller("projectController", function($scope, proje
   $scope.showRPMP = false;
 
   $scope.getProjects = function(){
-    projectService.getProjects().then(function(response){
+    projectService.getAndPopulateProjects().then(function(response){
       $scope.projects = response;
     });
   };
@@ -30,7 +30,6 @@ $scope.addProject = function(project){
 };
 
 $scope.updateProject = function(project){
-  console.log(project, "Project-Hit!");
   projectService.updateProject(project).then(function(){
     $scope.getProjects();
   });
@@ -45,7 +44,6 @@ $scope.getUserTasks = function(){
 $scope.getUserTasks();
 
 $scope.deleteProject = function(selectedProject){
-  console.log(selectedProject);
   projectService.deleteProject(selectedProject._id).then(function(response){
     $state.go($state.current, {}, {reload: true});
   });

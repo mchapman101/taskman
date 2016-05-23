@@ -8,7 +8,7 @@ angular.module('taskman').service('loadingScreenService', function(){
   });
   setTimeout(function(){
   loadingScreen.finish();
-}, 1000);
+}, 2000);
 };
 
 });
